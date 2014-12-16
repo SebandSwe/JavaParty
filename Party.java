@@ -55,6 +55,40 @@ class Party {
     }
     
     public void print() {
-        // Din kod här
+              int counter = 0;
+        System.out.print(partyName);
+        System.out.print(" i samarbete med ");
+        for(Entry<Sponsor,Money> e : sponsors.entrySet()){
+            if(counter < 1){
+                System.out.print(e.getKey());
+                counter++;
+            }
+            else{
+                System.out.print(" och ");
+                System.out.print(e.getKey());
+            }
+        }
+        counter = 0;
+        System.out.print(" Pris " + entranceFee + " per gäst,");
+        System.out.print(", max " + maxGuests + "gäster");
+        System.out.print(" Anmälda gäster: ");
+        for(Entry<Person, Boolean> e : guests.entrySet()){
+              if(counter < 1){
+                System.out.print(e.getKey());
+                if(e.getValue())
+                    System.out.print("(har betalat)");
+                else
+                      System.err.print("(har inte betalat)");
+                counter++;
+            }
+            else{
+                System.out.print(", ");
+                System.out.print(e.getKey());
+                if(e.getValue())
+                    System.out.print("(har betalat)");
+                else
+                      System.err.print("(har inte betalat)");
+              }
+        }
     }
 }
