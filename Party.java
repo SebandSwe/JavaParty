@@ -24,8 +24,12 @@ class Party {
         guests.put(guest, hasPaid);
     }
 
-    void pay(Person guest) {
-        // Din kod här
+    void pay(Person guest) throws NoSuchPersonException, Exception {
+        if (guests.get(guest)==null)
+            throw new NoSuchPersonException();
+        if(hasPaid(guest))
+            throw new Exception("Person already paid.");
+        guests.put(guest,true);
     }
 
     boolean hasPaid(Person guest) throws NoSuchPersonException {
@@ -39,6 +43,12 @@ class Party {
     void addSponsor(Sponsor sponsor, Money amount) {
         sponsors.put(sponsor, amount);
     }
+    
+    public void addSponsor(String name, double money)
+    {
+        this.addSponsor(new Sponsor(name), new Money(money));
+    }
+    
     public void print() {
         // Din kod här
     }
