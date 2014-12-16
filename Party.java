@@ -20,6 +20,11 @@ class Party {
       addGuest(guest, false);
     }
 
+    void addStudent(Student student){
+    	addGuest(student);
+    	addGuest(student.getGuest());
+    }
+    
     void addGuest(Person guest, boolean hasPaid) {
         guests.put(guest, hasPaid);
     }
