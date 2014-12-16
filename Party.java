@@ -43,6 +43,12 @@ class Party {
     void addSponsor(Sponsor sponsor, Money amount) {
         sponsors.put(sponsor, amount);
     }
+    
+    public void addSponsor(String name, double money)
+    {
+        this.addSponsor(new Sponsor(name), new Money(money));
+    }
+    
     public void print() {
         // Din kod här
     }
