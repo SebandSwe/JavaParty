@@ -24,8 +24,12 @@ class Party {
         guests.put(guest, hasPaid);
     }
 
-    void pay(Person guest) {
-        // Din kod här
+    void pay(Person guest) throws NoSuchPersonException, Exception {
+        if (guests.get(guest)==null)
+            throw new NoSuchPersonException();
+        if(hasPaid(guest))
+            throw new Exception("Person already paid.");
+        guests.put(guest,true);
     }
 
     boolean hasPaid(Person guest) throws NoSuchPersonException {
