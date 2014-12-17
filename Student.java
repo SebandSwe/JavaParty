@@ -8,7 +8,7 @@ class Student extends Person{
 		this.guest = guest;
 		guest.setHost(this);
 	}
-	public GuestToStudent getGuest(){
+	public Person getGuest(){
 		return guest;
 	}
 }
